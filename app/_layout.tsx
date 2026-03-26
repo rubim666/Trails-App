@@ -20,7 +20,7 @@ const RootLayout = () => {
                 <Stack.Screen
                     name="index"
                     options={{
-                        title: 'TrailNav',
+                        headerShown: false,
                     }}
                 />
 
@@ -46,6 +46,7 @@ const RootLayout = () => {
                 />
 
             </Stack>
+            <StatusBar style="light" />
         </>
     )
 }
