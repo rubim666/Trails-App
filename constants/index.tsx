@@ -76,5 +76,7 @@ const TRILHAS_LISTA: Record<string, Trilha> = {
     },
 }
 
+// test
+
 export { COLORS, SHADOWS, TRILHAS_LISTA }
 export type { Trilha, Dificuldade }
