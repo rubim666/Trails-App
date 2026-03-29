@@ -31,7 +31,7 @@ export function CustomDrawerContent(props: DrawerContentComponentProps) {
                                 router.replace('/');
                                 return;
                             }
-
+// 
                             navigation.navigate(item.screen as never);
                         }}
                     />
