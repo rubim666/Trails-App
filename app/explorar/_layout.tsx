@@ -46,3 +46,5 @@ const ExplorarLayout = () => {
         </GestureHandlerRootView>
     )
 }
+
+export default ExplorarLayout
