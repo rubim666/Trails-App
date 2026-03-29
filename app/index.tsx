@@ -148,12 +148,11 @@ const HomeScreen = () => {
 
     const handleFilterPress = (filter: string) => {
         setActiveFilter(filter);
-        if (filter !== "Todas") {
-            router.push({ pathname: "/abas/descobrir", params: { filtro: filter.toLowerCase() } });
-        } else {
-            router.push("/abas/descobrir");
-        }
     };
+
+    const filteredTrails = activeFilter === "Todas"
+        ? trails
+        : trails.filter((t) => t.dificuldade === activeFilter);
 
     return (
         <View style={styles.root}>
@@ -303,7 +302,7 @@ const HomeScreen = () => {
                                 ? Array.from({ length: 3 }).map((_, i) => (
                                       <Skeleton key={i} width={CARD_WIDTH} height={CARD_HEIGHT} borderRadius={16} />
                                   ))
-                                : trails.map((trilha) => (
+                                : filteredTrails.map((trilha) => (
                                       <PressCard
                                           key={trilha.id}
                                           style={[styles.trailCard, SHADOWS.card]}
