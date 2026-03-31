@@ -1,3 +1,5 @@
+import AnimatedGlow, { type PresetConfig } from 'react-native-animated-glow';
+
 // export const COLORS = {}
 
 const COLORS = {
@@ -11,6 +13,29 @@ const COLORS = {
     white: '#FFFFFF',
     text: '#1A2E0E',
     textMuted: '#6B7F5E',
+}
+
+const PRESETS_GLOW: PresetConfig = {
+    metadata: {
+        textColor: '#FFFFFF', 
+        category: 'Custom',
+        tags: ['interactive'],
+        name: 'Preset', 
+    },
+    states: [
+        {
+            name: 'default',
+            preset: {
+                cornerRadius: 50,
+                outlineWidth: 2,
+                borderColor: '#E0FFFF',
+                glowLayers: [
+                  { colors: ['#cdff42', '#4C5C2D', '#84B179'], opacity: 0.5, glowSize: 10 },
+                ]
+            }
+        }
+    ]
+
 }
 
 const SHADOWS = {
@@ -29,6 +54,19 @@ const SHADOWS = {
         elevation: 3,
     },
 }
+
+const USUARIO = {
+    trilhasConcluidas: 3,
+    tempoGasto: '17h',
+    nivelAtual: 7,
+};
+
+const ITEMS = [
+    { label: 'Perfil', screen: 'perfil' },
+    { label: 'Conquistas', screen: 'conquistas' },
+    { label: 'Histórico', screen: 'historico' },
+    { label: 'Sair', screen: 'sair' },
+]
 
 type Dificuldade = 'Fácil' | 'Média' | 'Difícil'
 
@@ -78,5 +116,5 @@ const TRILHAS_LISTA: Record<string, Trilha> = {
 
 // test
 
-export { COLORS, SHADOWS, TRILHAS_LISTA }
+export { COLORS, SHADOWS, TRILHAS_LISTA, PRESETS_GLOW, USUARIO, ITEMS }
 export type { Trilha, Dificuldade }

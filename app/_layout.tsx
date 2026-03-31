@@ -12,6 +12,7 @@ const RootLayout = () => {
                     headerTintColor: '#fff',
                     headerTitleStyle: {fontWeight: 'bold'},
                     animation: "slide_from_right",
+                    headerShown: false,
                 }}
             >
 
@@ -26,20 +27,6 @@ const RootLayout = () => {
 
                 <Stack.Screen
                     name="abas"
-                    options={{
-                        headerShown: false,
-                    }}
-                />
-
-                <Stack.Screen
-                    name="explorar"
-                    options={{
-                        headerShown: false,
-                    }}
-                />
-
-                <Stack.Screen
-                    name="trilha"
                     options={{
                         headerShown: false,
                     }}
