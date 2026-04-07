@@ -1,32 +1,49 @@
-import { Tabs } from 'expo-router';
-import { COLORS } from '../../constants/index';
-import { Text } from 'react-native';
-
-function TabIcon({ name, color }: { name: string; color: string }) {
-    return <Text style={{ color, fontSize: 24 }}>{name}</Text>;
-}
+import { Tabs, router } from 'expo-router';
+import { COLORS, SHADOWS } from '../../constants/index';
+import { TouchableOpacity, View, Platform } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 const AbasLayout = () => {
     return (
         <Tabs
             screenOptions={{
-                tabBarActiveTintColor: COLORS.primary,
-                tabBarInactiveTintColor: COLORS.subtitle,
+                tabBarActiveTintColor: COLORS.forest,
+                tabBarInactiveTintColor: COLORS.textMuted,
                 tabBarStyle: {
-                    backgroundColor: COLORS.surface,
-                    borderTopColor: COLORS.surface,
-                    height: 60,
+                    backgroundColor: COLORS.white,
+                    borderTopWidth: 0,
+                    height: Platform.OS === 'ios' ? 88 : 64,
+                    paddingBottom: Platform.OS === 'ios' ? 24 : 8,
+                    paddingTop: 8,
+                    ...SHADOWS.sm,
                 },
-                headerStyle: { backgroundColor: COLORS.primary },
-                headerTintColor: '#fff',
-                headerTitleStyle: { fontWeight: 'bold' },
+                tabBarLabelStyle: {
+                    fontSize: 11,
+                    fontWeight: '600',
+                },
+                headerStyle: {
+                    backgroundColor: COLORS.white,
+                    ...SHADOWS.sm,
+                },
+                headerTintColor: COLORS.forest,
+                headerTitleStyle: { fontWeight: '700', fontSize: 18 },
+                headerLeft: () => (
+                    <TouchableOpacity
+                        onPress={() => router.replace('/')}
+                        style={{ marginLeft: 16, padding: 4 }}
+                    >
+                        <Ionicons name="arrow-back" size={24} color={COLORS.forest} />
+                    </TouchableOpacity>
+                ),
             }}
         >
             <Tabs.Screen
                 name="mapa"
                 options={{
                     title: 'Mapa',
-                    tabBarIcon: ({ color }) => <TabIcon name="🗺️" color={color} />,
+                    tabBarIcon: ({ color, size }) => (
+                        <Ionicons name="map" size={size} color={color} />
+                    ),
                 }}
             />
 
@@ -34,7 +51,9 @@ const AbasLayout = () => {
                 name="descobrir"
                 options={{
                     title: 'Descobrir',
-                    tabBarIcon: ({ color }) => <TabIcon name="🔍" color={color} />,
+                    tabBarIcon: ({ color, size }) => (
+                        <Ionicons name="compass" size={size} color={color} />
+                    ),
                 }}
             />
 
@@ -42,7 +61,9 @@ const AbasLayout = () => {
                 name="minhas"
                 options={{
                     title: 'Minhas Trilhas',
-                    tabBarIcon: ({ color }) => <TabIcon name="🗺️" color={color} />,
+                    tabBarIcon: ({ color, size }) => (
+                        <Ionicons name="heart" size={size} color={color} />
+                    ),
                 }}
             />
 
@@ -50,7 +71,9 @@ const AbasLayout = () => {
                 name="config"
                 options={{
                     title: 'Config',
-                    tabBarIcon: ({ color }) => <TabIcon name="⚙️" color={color} />,
+                    tabBarIcon: ({ color, size }) => (
+                        <Ionicons name="settings" size={size} color={color} />
+                    ),
                 }}
             />
         </Tabs>
