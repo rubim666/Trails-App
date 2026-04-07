@@ -4,11 +4,11 @@ import AnimatedGlow, { type PresetConfig } from 'react-native-animated-glow';
 
 const COLORS = {
     subtitle: '#555',
-    primary: '#84B179',
-    secondary: '#A2CB8B',
-    tertiary: '#C7EABB',
-    quaternary: '#E8F5BD',
-    forest: '#2D5016',
+    primary: '#333333',
+    secondary: '#FFFFFF',
+    tertiary: '#706C61',
+    quaternary: '#393E46',
+    forest: '#1f1f1f',
     surface: '#F7FFF0',
     white: '#FFFFFF',
     text: '#1A2E0E',

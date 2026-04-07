@@ -168,7 +168,7 @@ const HomeScreen = () => {
                 {/* Hero */}
                 <Animated.View style={[styles.heroWrapper, { transform: [{ translateY: heroParallax }] }]}>
                     <LinearGradient
-                        colors={["#2D5016", "#84B179", "#C7EABB"]}
+                        colors={[COLORS.primary, COLORS.tertiary, COLORS.secondary]}
                         locations={[0, 0.6, 1]}
                         style={styles.hero}
                     >
